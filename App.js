@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Text,
   Link,
   HStack,
   Center,
@@ -15,19 +14,21 @@ import {
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import { Platform } from "react-native";
 import LoginScreen from "./screens/LoginScreen";
-
-// Define the config
+import InterestBadge from "./components/InterestBadge";
+import { Text,View } from "react-native";
+import InterestSelectScreen from "./screens/InterestSelectScreen";
+import RegisterScreen from "./screens/RegisterScreen";
+// extend the theme
 const config = {
   useSystemColorMode: false,
   initialColorMode: "dark",
 };
-
-// extend the theme
 export const theme = extendTheme({ config });
 
 export default function App() {
   return (
-    <LoginScreen/>
+    <RegisterScreen/>
+    
     // <NativeBaseProvider>
     //   <Center
     //     _dark={{ bg: "blueGray.900" }}

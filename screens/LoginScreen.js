@@ -1,4 +1,4 @@
-import { Box, NativeBaseProvider, Text, Input, Button, Link} from 'native-base'
+import { Box, NativeBaseProvider, Text, Input, Button, Link, ScrollView} from 'native-base'
 import React, { Component } from 'react'
 import { StyleSheet, View} from 'react-native'
 import { useFonts, Ribeye_400Regular } from '@expo-google-fonts/ribeye';
@@ -7,8 +7,10 @@ export default function LoginScreen() {
   const [fontsLoaded] = useFonts({
     Ribeye_400Regular,
   });
+
     return (
       <NativeBaseProvider>
+        <ScrollView>
           <View style={styles.textIcon}>
             <Text fontSize="3xl" style={[{marginRight:"35%", fontFamily:'Ribeye_400Regular'}]}>The</Text>
             <Text fontSize="3xl" style={[{marginLeft:"15%", fontFamily:'Ribeye_400Regular'}]}>Prattler</Text>
@@ -26,6 +28,7 @@ export default function LoginScreen() {
           <Text mt="1.5">forgot password?</Text>
           </View>
           </View>
+          </ScrollView>
       </NativeBaseProvider>
     );
 }
