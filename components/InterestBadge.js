@@ -7,7 +7,7 @@ export default function InterestBadge(props) {
     const [fontsLoaded] = useFonts({
         Ribeye_400Regular,
       });
-    const [select, setSelect] = React.useState(false)
+    const [select, setSelect] = useState(false)
     // const [index, setIndex] = React.useState(props.idx)
     return (
             <Button colorScheme="white"_hover={{bg:'#F4EFED'}} onPress={()=>{
