@@ -1,4 +1,4 @@
-import { NativeBaseProvider, ScrollView, Box, Input, Button, Circle, Icon} from 'native-base'
+import { NativeBaseProvider, ScrollView, Box, Input, Button, Circle, Icon, Center} from 'native-base'
 import React, { useState } from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import { useFonts, Ribeye_400Regular } from '@expo-google-fonts/ribeye';
@@ -14,7 +14,7 @@ export default function RegisterScreen() {
   return (
     <NativeBaseProvider>
       <ScrollView>
-        <View>
+        <View style={[{alignItems:'center',justifyContent:'center',marginTop:"15%"}]}>
           <Box style={[{ marginTop: "10%" }]}>
             <Box alignSelf="center" alignItems="center" borderWidth="2" borderColor="#736868" bg="white" maxW="80" rounded="lg" pt="0" pr="5" pl="5" pb="5">
               <Box pb="5" pt="8">
