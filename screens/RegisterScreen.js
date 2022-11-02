@@ -7,7 +7,7 @@ import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
 
 export default function RegisterScreen() {
-  const [fontsLoaded] = useFonts({
+  const fontsLoaded = async ()=> await useFonts({
     Ribeye_400Regular,
   });
   const [visible, setVisible] = useState(true)
@@ -20,10 +20,10 @@ export default function RegisterScreen() {
               <Box pb="5" pt="8">
                 <View>
                   <TouchableOpacity style={styles.roundedButton}>
-                  <div onMouseEnter={()=>{setVisible(false)}} onMouseLeave={()=>{setVisible(true)}}>
+                  <View onMouseEnter={()=>{setVisible(false)}} onMouseLeave={()=>{setVisible(true)}}>
                   {visible?<FontAwesome name="user-o" size={15} color="black"/>:
                   <MaterialIcons name="file-upload" size={15} color="black"/>}
-                  </div>
+                  </View>
                   </TouchableOpacity>
                 </View>
               </Box>
@@ -32,7 +32,7 @@ export default function RegisterScreen() {
               <Input size="md" placeholder="Email" mt="2" mb="3" borderWidth="1" borderColor="#736868" />
               <Input type="password" size="md" placeholder="Password" my="3" borderWidth="1" borderColor="#736868" />
               <Input type="password" size="md" placeholder="Confirm Password" my="3" borderWidth="1" borderColor="#736868" />
-              <Button alignSelf="flex-end" mt="4" mb="3" width="40%" height="6%" bgColor="#B4948D" borderWidth="1" borderColor="#9D746B" shadow="7" _text={{ fontSize: "md" }} >Register</Button>
+              <Button alignSelf="flex-end" mt="4" mb="3" bgColor="#B4948D" borderWidth="1" borderColor="#9D746B" shadow="7" _text={{ fontSize: "md" }} >Register</Button>
             </Box>
           </Box>
         </View>
