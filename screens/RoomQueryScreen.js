@@ -10,7 +10,7 @@ export default function RoomQueryScreen() {
   });
   return (
     <NativeBaseProvider>
-        <ScrollView>
+        <ScrollView style={[{marginTop:"20%"}]}>
         {/* <View style={[{marginTop:10, justifyContent:"center", alignItems:"center"}]}>
             <Input rounded width="80%" type="text" mt="10%" placeholder='search' style={[{fontFamily:'Ribeye_400Regular'}]} InputRightElement={<Ionicons name="md-search" size={24} color="black" style={[{marginRight:3}]}/>} borderWidth="2" borderColor="grey"></Input>
         </View> */}

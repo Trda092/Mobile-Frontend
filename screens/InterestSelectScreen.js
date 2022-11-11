@@ -1,45 +1,49 @@
 import React from 'react'
 import InterestBadge from '../components/InterestBadge'
-import { NativeBaseProvider,ScrollView,Text } from 'native-base'
-import { View,StyleSheet } from 'react-native'
+import { NativeBaseProvider, ScrollView, Text, Input } from 'native-base'
+import { View, StyleSheet } from 'react-native'
 import { AntDesign } from '@expo/vector-icons';
 import { useFonts, Ribeye_400Regular } from '@expo-google-fonts/ribeye';
+import { Ionicons } from '@expo/vector-icons';
 
 
-export default function InterestSelectScreen({navigation}) {
+export default function InterestSelectScreen({ navigation }) {
   const [fontsLoaded] = useFonts({
     Ribeye_400Regular,
   });
   const interestName = ["basketball", "football", "ai", "pressing", "newcomer", "detective", "invest"]
   return (
     <NativeBaseProvider>
-      <ScrollView>
-      <View style={styles.textIcon}>
-            <Text fontSize="3xl" style={[{textAlign:'center', fontFamily:'Ribeye_400Regular'}]}>What's your</Text>
-            <Text fontSize="3xl" style={[{textAlign:'center', fontFamily:'Ribeye_400Regular'}]}>interest topic</Text>
-          </View>
-      <View style={styles.BtnSelection}>
-     {interestName.map((name,index)=>{
-      return <InterestBadge key={index} idx={index} text={name}/>
-     })}
-      </View>
-      <View style={[{flex:1, alignItems:'flex-end'}]}>
-      <AntDesign name="arrowright" size={24} color="black" onPress={()=>{navigation.navigate("RoomQuery")}}/>
-      </View>
+      <ScrollView style={[{ marginTop: "10%" }]}>
+        <View style={styles.textIcon}>
+          <Text fontSize="3xl" style={[{ textAlign: 'center', fontFamily: 'Ribeye_400Regular' }]}>What's your</Text>
+          <Text fontSize="3xl" style={[{ textAlign: 'center', fontFamily: 'Ribeye_400Regular' }]}>interest topic</Text>
+        </View>
+        {/* <View style={[{ marginTop: 10, justifyContent: "center", alignItems: "center" }]}>
+          <Input rounded width="80%" type="text" mt="10%" placeholder='search' style={[{ fontFamily: 'Ribeye_400Regular' }]} InputRightElement={<Ionicons name="md-search" size={24} color="black" style={[{ marginRight: 3 }]} />} borderWidth="2" borderColor="grey"></Input>
+        </View> */}
+        <View style={styles.BtnSelection}>
+          {interestName.map((name, index) => {
+            return <InterestBadge key={index} idx={index} text={name} />
+          })}
+        </View>
+        <View style={[{ flex: 1, alignItems: 'flex-end' }]}>
+          <AntDesign name="arrowright" size={24} color="black" onPress={() => { navigation.navigate("RoomQuery") }} />
+        </View>
       </ScrollView>
     </NativeBaseProvider>
   )
 }
 const styles = StyleSheet.create({
-  textIcon:{
-    textAlign:'center',
-    marginTop:"15%",
+  textIcon: {
+    textAlign: 'center',
+    marginTop: "15%",
   },
-  BtnSelection:{
-    flexDirection:"row", 
-    justifyContent:'center',
-    flexWrap:'wrap',
-    marginTop:"10%",
+  BtnSelection: {
+    flexDirection: "row",
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    marginTop: "10%",
     // maxHeight:"50%"
   }
 });

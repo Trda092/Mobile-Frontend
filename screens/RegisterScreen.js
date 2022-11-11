@@ -14,7 +14,7 @@ export default function RegisterScreen() {
   return (
     <NativeBaseProvider>
       <ScrollView>
-        <View style={[{alignItems:'center',justifyContent:'center',marginTop:"15%"}]}>
+        <View style={[{alignItems:'center',justifyContent:'center',marginTop:"10%"}]}>
           <Box style={[{ marginTop: "10%" }]}>
             <Box alignSelf="center" alignItems="center" borderWidth="2" borderColor="#736868" bg="white" maxW="80" rounded="lg" pt="0" pr="5" pl="5" pb="5">
               <Box pb="5" pt="8">

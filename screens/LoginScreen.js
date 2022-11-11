@@ -34,7 +34,7 @@ export default function LoginScreen({navigation}) {
 const styles = StyleSheet.create({
   textIcon:{
     textAlign:'center',
-    marginTop:"15%",
+    marginTop:"40%",
   }
 });
 

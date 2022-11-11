@@ -33,11 +33,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-      {/* <Stack.Screen name="Login" component={LoginScreen}/>
-      <Stack.Screen name="Register" component={RegisterScreen}/>
-      <Stack.Screen name="InterestSelection" component={InterestSelectScreen}/> */}
-      {/* <Stack.Screen name="RoomQuery" component={RoomQueryScreen}></Stack.Screen> */}
-      <Stack.Screen name="FriendStatus" component={FriendStatusScreen}></Stack.Screen>
+      {/* <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/> */}
+      {/* <Stack.Screen name="Register" component={RegisterScreen}/> */}
+      {/* <Stack.Screen name="InterestSelection" component={InterestSelectScreen} options={{headerShown:false}}/> */}
+      {/* <Stack.Screen name="RoomQuery" component={RoomQueryScreen} options={{headerShown:false}}></Stack.Screen> */}
+      <Stack.Screen name="FriendStatus" component={FriendStatusScreen} options={{headerShown:false}}></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
     // <RoomQueryScreen/>
