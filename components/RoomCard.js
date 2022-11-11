@@ -1,18 +1,10 @@
-import { Box, NativeBaseProvider, ScrollView } from 'native-base'
+import { Box, NativeBaseProvider,Input, Text, AspectRatio,Button, Center, Stack, Heading, HStack} from 'native-base'
 import React from 'react'
 import { View } from 'react-native'
+import { TouchableOpacity } from 'react-native-web'
 
 export default function RoomCard() {
   return (
-    <NativeBaseProvider>
-      <ScrollView>
-        <View>
-          <Box>
-              <Box><Box>Room Topic</Box><Box>Join</Box></Box>
-              <Box>Description</Box>
-          </Box>
-        </View>
-      </ScrollView>
-    </NativeBaseProvider>
+    <Box></Box>
   )
 }

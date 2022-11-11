@@ -1,0 +1,17 @@
+    [
+        {
+            "name":"tada",
+            "status":"avaliable",
+            "image":""
+        },
+        {
+            "name":"goten",
+            "status":"joining",
+            "image":""
+        },
+        {
+            "name":"big",
+            "status":"offline",
+            "image":""
+        }
+    ]
