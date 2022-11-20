@@ -19,9 +19,6 @@ export default function InterestSelectScreen({ navigation }) {
           <Text fontSize="3xl" style={[{ textAlign: 'center', fontFamily: 'Ribeye_400Regular' }]}>What's your</Text>
           <Text fontSize="3xl" style={[{ textAlign: 'center', fontFamily: 'Ribeye_400Regular' }]}>interest topic</Text>
         </View>
-        {/* <View style={[{ marginTop: 10, justifyContent: "center", alignItems: "center" }]}>
-          <Input rounded width="80%" type="text" mt="10%" placeholder='search' style={[{ fontFamily: 'Ribeye_400Regular' }]} InputRightElement={<Ionicons name="md-search" size={24} color="black" style={[{ marginRight: 3 }]} />} borderWidth="2" borderColor="grey"></Input>
-        </View> */}
         <View style={styles.BtnSelection}>
           {interestName.map((name, index) => {
             return <InterestBadge key={index} idx={index} text={name} />

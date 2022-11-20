@@ -5,6 +5,8 @@ import { TouchableOpacity } from 'react-native-web'
 
 export default function RoomCard() {
   return (
-    <Box></Box>
+    <NativeBaseProvider>
+      
+    </NativeBaseProvider>
   )
 }
