@@ -16,9 +16,17 @@ export default function FriendStatusScreen() {
             </View>
             <View>
                 <VStack space={3} alignItems="center">
-                    <FriendStateBox status="offline"/>
                     <FriendStateBox status="joining"/>
                     <FriendStateBox status="avaliable"/>
+                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="offline"/>
+                    
                 </VStack>
             </View>
         </ScrollView>

@@ -67,7 +67,7 @@ export default function CreateRoomScreen() {
             </Text>
             {/* <Input style={{ borderRadius: 20 }}></Input> */}
             <TextInput
-              placeholder="BOBO RETURN"
+              placeholder="Room Name"
               style={{
                 height: 40,
                 width: "100%",
@@ -87,7 +87,7 @@ export default function CreateRoomScreen() {
             </Text>
             {/* <Input onChangeText={setSearch} placeholder={"Search"}></Input> */}
             <TextInput
-              placeholder="Search"
+              placeholder="Interest Name"
               onChangeText={setSearch}
               style={{
                 height: 40,
@@ -121,7 +121,7 @@ export default function CreateRoomScreen() {
                 borderRadius: 10,
               }}
             >
-              <Text style={{ textAlign: "center" }} >CreateRoom</Text>
+              <Text style={{ textAlign: "center" }} onPress={()=>{NavigationPreloadManager.navigate("")}} >CreateRoom</Text>
             </TouchableOpacity>
           </View>
         </View>

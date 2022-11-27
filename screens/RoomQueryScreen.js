@@ -28,7 +28,7 @@ export default function RoomQueryScreen({route, navigation}) {
                 borderRadius: 10,
               }}
             >
-              <Text style={{ textAlign: "center" }} >CreateRoom</Text>
+              <Text style={{ textAlign: "center" }} onPress={()=>{navigation.navigate("CreateRoom")}}>CreateRoom</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
