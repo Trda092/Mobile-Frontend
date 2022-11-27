@@ -5,12 +5,27 @@ import { useFonts, Ribeye_400Regular } from '@expo-google-fonts/ribeye';
 import { MaterialIcons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
-
-export default function RegisterScreen() {
+import {db} from '../firebase'
+export default function RegisterScreen({navigation}) {
   const fontsLoaded = async ()=> await useFonts({
     Ribeye_400Regular,
   });
   const [visible, setVisible] = useState(true)
+  const [name, setName] = useState("")
+  const [username, setUserName] = useState("")
+  const [password, setPassword] = useState("")
+  const [cfpassword, setCfPassword] = useState("")
+  const [email, setEmail] = useState("")
+  async function regis(){
+    try{
+    await db.collection('user').add({"name":name,"username":username,"email":email,"password":password})
+    navigation.goBack()
+  }
+  catch(err){
+    console.log(err);
+  }
+}
+
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -27,12 +42,12 @@ export default function RegisterScreen() {
                   </TouchableOpacity>
                 </View>
               </Box>
-              <Input size="md" placeholder="Name" mt="2" mb="3" borderWidth="1" borderColor="#736868" />
-              <Input size="md" placeholder="Username" mt="2" mb="3" borderWidth="1" borderColor="#736868" />
-              <Input size="md" placeholder="Email" mt="2" mb="3" borderWidth="1" borderColor="#736868" />
-              <Input type="password" size="md" placeholder="Password" my="3" borderWidth="1" borderColor="#736868" />
-              <Input type="password" size="md" placeholder="Confirm Password" my="3" borderWidth="1" borderColor="#736868" />
-              <Button alignSelf="flex-end" mt="4" mb="3" bgColor="#B4948D" borderWidth="1" borderColor="#9D746B" shadow="7" _text={{ fontSize: "md" }} >Register</Button>
+              <Input size="md" placeholder="Name" mt="2" mb="3" borderWidth="1" borderColor="#736868" onChangeText={(text)=>{setName(text)}}/>
+              <Input size="md" placeholder="Username" mt="2" mb="3" borderWidth="1" borderColor="#736868" onChangeText={(text)=>{setUserName(text)}} />
+              <Input size="md" placeholder="Email" mt="2" mb="3" borderWidth="1" borderColor="#736868" onChangeText={(text)=>{setEmail(text)}}/>
+              <Input type="password" size="md" placeholder="Password" my="3" borderWidth="1" borderColor="#736868" onChangeText={(text)=>{setPassword(text)}}/>
+              <Input type="password" size="md" placeholder="Confirm Password" my="3" borderWidth="1" borderColor="#736868" onChangeText={(text)=>{setCfPassword(text)}}/>
+              <Button alignSelf="flex-end" mt="4" mb="3" bgColor="#B4948D" borderWidth="1" borderColor="#9D746B" shadow="7" _text={{ fontSize: "md" }} onPress={()=>{regis()}}>Register</Button>
             </Box>
           </Box>
         </View>

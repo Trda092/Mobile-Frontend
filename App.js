@@ -22,6 +22,7 @@ import RoomQueryScreen from "./screens/RoomQueryScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FriendStatusScreen from "./screens/FriendStatusScreen";
+import CreateRoomScreen from "./screens/CreateRoomScreen";
 const config = {
   useSystemColorMode: false,
   initialColorMode: "dark",
@@ -35,9 +36,11 @@ export default function App() {
       <Stack.Navigator initialRouteName="Login">
       {/* <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/> */}
       {/* <Stack.Screen name="Register" component={RegisterScreen}/> */}
-      {/* <Stack.Screen name="InterestSelection" component={InterestSelectScreen} options={{headerShown:false}}/> */}
-      {/* <Stack.Screen name="RoomQuery" component={RoomQueryScreen} options={{headerShown:false}}></Stack.Screen> */}
-      <Stack.Screen name="FriendStatus" component={FriendStatusScreen} options={{headerShown:false}}></Stack.Screen>
+      <Stack.Screen name="InterestSelection" component={InterestSelectScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="RoomQuery" component={RoomQueryScreen} options={{headerShown:false}}></Stack.Screen>
+      {/* <Stack.Screen name="CreateRoom" component={CreateRoomScreen} options={{headerShown:false}}></Stack.Screen>
+      <Stack.Screen name="FriendStatus" component={FriendStatusScreen} options={{headerShown:false}}></Stack.Screen> */}
+
       </Stack.Navigator>
     </NavigationContainer>
     // <RoomQueryScreen/>

@@ -31,6 +31,7 @@ export default function InterestSelectScreen({ navigation }) {
     "newcomer",
     "detective",
     "invest",
+    "twitch.tv"
   ];
   return (
     <NativeBaseProvider>
@@ -49,7 +50,7 @@ export default function InterestSelectScreen({ navigation }) {
             interest topic
           </Text>
         </View>
-        <TextInput
+        {/* <TextInput
           placeholder="Search"
           onChangeText={setSearch}
           style={{
@@ -62,7 +63,7 @@ export default function InterestSelectScreen({ navigation }) {
             alignSelf: "center",
             borderColor: "#9D746B",
           }}
-        />
+        /> */}
         {
           <View style={styles.BtnSelection}>
             {select.map((name, index) => (
@@ -100,8 +101,14 @@ export default function InterestSelectScreen({ navigation }) {
             size={24}
             color="black"
             onPress={() => {
-              navigation.navigate("RoomQuery");
-            }}
+              if (select.length != 0){
+              navigation.navigate("RoomQuery", {"selectInterest":select});
+            }
+            else{
+              alert("please select your interest")
+            }
+            }
+          }
           />
         </View>
       </ScrollView>

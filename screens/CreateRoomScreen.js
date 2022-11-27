@@ -12,7 +12,7 @@ import { TextInput } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 import { useFonts, Ribeye_400Regular } from "@expo-google-fonts/ribeye";
 import { Ionicons } from "@expo/vector-icons";
-import { color } from "react-native-elements/dist/helpers";
+// import { color } from "react-native-elements/dist/helpers";
 import { TouchableOpacity } from "react-native";
 
 export default function CreateRoomScreen() {
@@ -61,7 +61,7 @@ export default function CreateRoomScreen() {
           <View style={{ paddingHorizontal: 20 }}>
             <Text
               fontSize="3xl"
-              style={[{ textAlign: "start", fontFamily: "Ribeye_400Regular" }]}
+              style={[{ textAlign: 'left', fontFamily: "Ribeye_400Regular" }]}
             >
               Room Name
             </Text>
@@ -81,7 +81,7 @@ export default function CreateRoomScreen() {
             />
             <Text
               fontSize="3xl"
-              style={[{ textAlign: "start", fontFamily: "Ribeye_400Regular" }]}
+              style={[{ textAlign: "left", fontFamily: "Ribeye_400Regular" }]}
             >
               interest topic
             </Text>
@@ -121,7 +121,7 @@ export default function CreateRoomScreen() {
                 borderRadius: 10,
               }}
             >
-              <Text style={{ textAlign: "center" }}>CreateRoom</Text>
+              <Text style={{ textAlign: "center" }} >CreateRoom</Text>
             </TouchableOpacity>
           </View>
         </View>
