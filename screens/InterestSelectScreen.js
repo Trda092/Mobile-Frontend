@@ -31,7 +31,7 @@ export default function InterestSelectScreen({ navigation }) {
     "newcomer",
     "detective",
     "invest",
-    "twitch.tv"
+    "twitch.tv",
   ];
   return (
     <NativeBaseProvider>
@@ -101,14 +101,12 @@ export default function InterestSelectScreen({ navigation }) {
             size={24}
             color="black"
             onPress={() => {
-              if (select.length != 0){
-              navigation.navigate("RoomQuery", {"selectInterest":select});
-            }
-            else{
-              alert("please select your interest")
-            }
-            }
-          }
+              if (select.length != 0) {
+                navigation.navigate("RoomQuery", { selectInterest: select });
+              } else {
+                alert("please select your interest");
+              }
+            }}
           />
         </View>
       </ScrollView>
