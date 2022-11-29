@@ -33,7 +33,15 @@ export default function RoomCard(props) {
         >
           <Text>{props.name}</Text>
         </View>
-        <View style={{ width: "20%" }}>
+        <View
+          style={{
+            width: "20%",
+            borderBottomWidth: 2,
+            borderTopWidth: 2,
+            borderRightWidth: 2,
+            borderColor: "#9D746B",
+          }}
+        >
           <TouchableOpacity
             style={{
               backgroundColor: "#9D746B",
