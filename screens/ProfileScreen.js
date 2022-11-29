@@ -12,10 +12,11 @@ export default function ProfileScreen() {
   const user = {
     id: 1,
     name: "Natanon",
-    aboutme:
-      "I'm react native developer",
-    contact:
-      "device@kml.ds.co.es",
+    profile: {
+      uri: "https://reactjs.org/logo-og.png",
+    },
+    aboutme: "I'm react native developer",
+    contact: "device@kml.ds.co.es",
   };
   return (
     <NativeBaseProvider>
@@ -26,7 +27,7 @@ export default function ProfileScreen() {
               <ImageBackground
                 imageStyle={{ borderRadius: 100 }}
                 style={styles.Image}
-                source={image}
+                source={user.profile}
                 resizeMode="cover"
               ></ImageBackground>
             </View>

@@ -6,10 +6,10 @@ import {
   Button,
   Center,
 } from "native-base";
-
+import { AntDesign } from "@expo/vector-icons";
 import React from "react";
 import { View, StyleSheet, ImageBackground } from "react-native";
-export default function RoomScreen() {
+export default function RoomScreen({ navigation }) {
   const room = [
     {
       id: 1,
@@ -105,11 +105,24 @@ export default function RoomScreen() {
         </View>
 
         <View style={styles.Footer}>
+          <View style={{ paddingHorizontal: 20 }}>
+            <AntDesign name="disconnect" size={24} color="black" />
+          </View>
           <View style={{ paddingHorizontal: 10 }}>
             <Text>Audience</Text>
           </View>
           <View style={{ paddingHorizontal: 10 }}>
             <Text>Speaker</Text>
+          </View>
+          <View style={{ paddingHorizontal: 20 }}>
+            <AntDesign
+              name="smileo"
+              size={24}
+              color="black"
+              onPress={() => {
+                navigation.navigate("Profile");
+              }}
+            />
           </View>
           {/* <View></View>
           <View></View> */}
