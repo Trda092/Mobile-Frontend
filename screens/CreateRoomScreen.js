@@ -14,14 +14,23 @@ import { useFonts, Ribeye_400Regular } from "@expo-google-fonts/ribeye";
 import { Ionicons } from "@expo/vector-icons";
 // import { color } from "react-native-elements/dist/helpers";
 import { TouchableOpacity } from "react-native";
-
+import {db} from '../firebase'
 export default function CreateRoomScreen() {
   const [fontsLoaded] = useFonts({
     Ribeye_400Regular,
   });
   const [search, setSearch] = React.useState("");
   const [select, setSelect] = React.useState([]);
-
+  const [name, setName] = React.useState("");
+  async function createRoom(){
+    try{
+      await db.collection('room').add({"name": name, "interestTag": select})
+      NavigationPreloadManager.navigate("RoomScreen")
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
   function selectHandle(name) {
     let clone = [...select];
 
@@ -78,6 +87,7 @@ export default function CreateRoomScreen() {
                 alignSelf: "center",
                 borderColor: "#9D746B",
               }}
+              onChangeText={(text)=>setName(text)}
             />
             <Text
               fontSize="3xl"
@@ -121,7 +131,7 @@ export default function CreateRoomScreen() {
                 borderRadius: 10,
               }}
             >
-              <Text style={{ textAlign: "center" }} onPress={()=>{NavigationPreloadManager.navigate("RoomScreen")}} >Create Room</Text>
+              <Text style={{ textAlign: "center" }} onPress={()=>{createRoom()}} >Create Room</Text>
             </TouchableOpacity>
           </View>
         </View>
