@@ -16,16 +16,13 @@ export default function FriendStatusScreen() {
             </View>
             <View>
                 <VStack space={3} alignItems="center">
-                    <FriendStateBox status="joining"/>
-                    <FriendStateBox status="avaliable"/>
-                    <FriendStateBox status="offline"/>
-                    <FriendStateBox status="offline"/>
-                    <FriendStateBox status="offline"/>
-                    <FriendStateBox status="offline"/>
-                    <FriendStateBox status="offline"/>
-                    <FriendStateBox status="offline"/>
-                    <FriendStateBox status="offline"/>
-                    <FriendStateBox status="offline"/>
+                    <FriendStateBox status="joining" name="Goten" statusAx="joing in คุยเรื่องฟุตบอล"/>
+                    <FriendStateBox status="avaliable" name="Bigbig" statusAx="ยังไม่ได้เข้าร่วมห้อง"/>
+                    <FriendStateBox status="offline" name="Mewmew" statusAx="ไม่ได้ออนไลน์"/>
+                    <FriendStateBox status="offline" name="Anim" statusAx="ไม่ได้ออนไลน์"/>
+                    <FriendStateBox status="offline" name="BJimmy" statusAx="ไม่ได้ออนไลน์"/>
+                    <FriendStateBox status="offline" name="Butler" statusAx="ไม่ได้ออนไลน์"/>
+                    <FriendStateBox status="offline" name="Oliver" statusAx="ไม่ได้ออนไลน์"/>
                     
                 </VStack>
             </View>

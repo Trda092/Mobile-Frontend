@@ -23,6 +23,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import FriendStatusScreen from "./screens/FriendStatusScreen";
 import CreateRoomScreen from "./screens/CreateRoomScreen";
+import RoomScreen from "./screens/RoomScreen";
 const config = {
   useSystemColorMode: false,
   initialColorMode: "dark",
@@ -39,7 +40,8 @@ export default function App() {
       <Stack.Screen name="InterestSelection" component={InterestSelectScreen} options={{headerShown:false}}/>
       <Stack.Screen name="RoomQuery" component={RoomQueryScreen} options={{headerShown:false}}></Stack.Screen>
       <Stack.Screen name="CreateRoom" component={CreateRoomScreen} options={{headerShown:false}}></Stack.Screen>
-      {/* <Stack.Screen name="FriendStatus" component={FriendStatusScreen} options={{headerShown:false}}></Stack.Screen> */}
+      <Stack.Screen name="RoomScreen" component={RoomScreen}  options={{headerShown:false}}></Stack.Screen>
+      <Stack.Screen name="FriendStatus" component={FriendStatusScreen} options={{headerShown:false}}></Stack.Screen>
 
       </Stack.Navigator>
     </NavigationContainer>

@@ -121,7 +121,7 @@ export default function CreateRoomScreen() {
                 borderRadius: 10,
               }}
             >
-              <Text style={{ textAlign: "center" }} onPress={()=>{NavigationPreloadManager.navigate("")}} >CreateRoom</Text>
+              <Text style={{ textAlign: "center" }} onPress={()=>{NavigationPreloadManager.navigate("RoomScreen")}} >Create Room</Text>
             </TouchableOpacity>
           </View>
         </View>

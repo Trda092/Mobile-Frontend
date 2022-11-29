@@ -6,7 +6,7 @@ export default function OtherProfileScreen() {
     <NativeBaseProvider>
         <ScrollView>
             <View>
-
+          
             </View>
         </ScrollView>
     </NativeBaseProvider>
