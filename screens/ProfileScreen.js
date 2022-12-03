@@ -5,11 +5,17 @@ import {
   Input,
   Button,
 } from "native-base";
-import React from "react";
-import { View, StyleSheet, ImageBackground } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import React, { useEffect, useState } from "react";
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 export default function ProfileScreen() {
-  const image = { uri: "https://reactjs.org/logo-og.png" };
-  const user = {
+  const data = {
     id: 1,
     name: "Natanon",
     profile: {
@@ -18,6 +24,30 @@ export default function ProfileScreen() {
     aboutme: "I'm react native developer",
     contact: "device@kml.ds.co.es",
   };
+
+  const image = { uri: "https://reactjs.org/logo-og.png" };
+  const [editName, setEditName] = useState(false);
+  const [editAboutMe, setEditAboutMe] = useState(false);
+  const [editContact, setEditContact] = useState(false);
+  const [user, setUser] = useState(data);
+
+  const [newName, setNewName] = useState(user.name);
+  const [newAboutMe, setNewAboutMe] = useState(data.aboutme);
+  const [newContact, setNewContact] = useState(data.contact);
+  useEffect(() => {
+    console.log(data);
+  });
+  function Save() {
+    setUser({
+      id: 1,
+      name: newName,
+      profile: {
+        uri: "https://reactjs.org/logo-og.png",
+      },
+      aboutme: newAboutMe,
+      contact: newContact,
+    });
+  }
   return (
     <NativeBaseProvider>
       <ScrollView>
@@ -27,32 +57,196 @@ export default function ProfileScreen() {
               <ImageBackground
                 imageStyle={{ borderRadius: 100 }}
                 style={styles.Image}
-                source={user.profile}
+                source={data.profile}
                 resizeMode="cover"
               ></ImageBackground>
             </View>
             <View style={styles.Info}>
-              <Text style={{ fontSize: 20 }}>Name</Text>
-              <Text style={{ fontSize: 20 }}>{user.name}</Text>
-              {/* <Button onPress={user.name = }>pressme</Button> */}
+              <View style={{ display: "flex", flexDirection: "row" }}>
+                <Text style={{ fontSize: 20 }}>Name</Text>
+                {!editName ? (
+                  <AntDesign
+                    name="edit"
+                    size={24}
+                    color="black"
+                    style={{ paddingHorizontal: 5 }}
+                    onPress={() => {
+                      setEditName(true);
+                    }}
+                  />
+                ) : (
+                  <View style={{ display: "flex", flexDirection: "row" }}>
+                    <AntDesign
+                      name="checkcircleo"
+                      style={{ paddingHorizontal: 5 }}
+                      size={20}
+                      color="lightgreen"
+                      onPress={() => {
+                        setEditName(false);
+                        Save();
+                      }}
+                    />
+                    <AntDesign
+                      name="closecircleo"
+                      style={{ paddingHorizontal: 5 }}
+                      size={20}
+                      color="red"
+                      onPress={() => {
+                        setEditName(false);
+                        setNewName(user.name);
+                      }}
+                    />
+                  </View>
+                )}
+              </View>
+
+              {!editName ? (
+                <Text style={{ fontSize: 20 }}>{user.name}</Text>
+              ) : (
+                <TextInput
+                  placeholder="Interest Name"
+                  value={newName}
+                  onChangeText={setNewName}
+                  style={{
+                    height: 30,
+                    width: "100%",
+                    borderWidth: 1,
+                    borderRadius: 10,
+                    alignSelf: "center",
+                    borderColor: "#9D746B",
+                    backgroundColor: "white",
+                  }}
+                />
+              )}
             </View>
           </View>
         </View>
         <View
           style={{ height: "auto", justifyContent: "center", paddingTop: 20 }}
         >
-          <Text style={{ fontSize: 30, paddingHorizontal: 20, paddingTop: 10 }}>
-            About Me
-          </Text>
-          <Text style={{ paddingHorizontal: 20 }}>{user.aboutme}</Text>
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            <Text
+              style={{ fontSize: 30, paddingHorizontal: 20, paddingTop: 10 }}
+            >
+              About Me
+            </Text>
+            {!editAboutMe ? (
+              <AntDesign
+                name="edit"
+                size={24}
+                color="black"
+                style={{ paddingHorizontal: 5 }}
+                onPress={() => {
+                  setEditAboutMe(true);
+                }}
+              />
+            ) : (
+              <View style={{ display: "flex", flexDirection: "row" }}>
+                <AntDesign
+                  name="checkcircleo"
+                  style={{ paddingHorizontal: 5 }}
+                  size={20}
+                  color="lightgreen"
+                  onPress={() => {
+                    setEditAboutMe(false);
+                    Save();
+                  }}
+                />
+                <AntDesign
+                  name="closecircleo"
+                  style={{ paddingHorizontal: 5 }}
+                  size={20}
+                  color="red"
+                  onPress={() => {
+                    setEditAboutMe(false);
+                    setNewAboutMe(user.aboutme);
+                  }}
+                />
+              </View>
+            )}
+          </View>
+          {!editAboutMe ? (
+            <Text style={{ paddingHorizontal: 20 }}>{user.aboutme}</Text>
+          ) : (
+            <TextInput
+              placeholder="Interest Name"
+              defaultValue={newAboutMe}
+              onChangeText={setNewAboutMe}
+              style={{
+                height: 30,
+                width: "90%",
+                borderWidth: 1,
+                borderRadius: 10,
+                alignSelf: "center",
+                borderColor: "#9D746B",
+                backgroundColor: "white",
+              }}
+            />
+          )}
         </View>
         <View
           style={{ height: "auto", justifyContent: "center", paddingTop: 20 }}
         >
-          <Text style={{ fontSize: 30, paddingHorizontal: 20, paddingTop: 10 }}>
-            Contact
-          </Text>
-          <Text style={{ paddingHorizontal: 20 }}>{user.contact}</Text>
+          <View style={{ display: "flex", flexDirection: "row" }}>
+            <Text
+              style={{ fontSize: 30, paddingHorizontal: 20, paddingTop: 10 }}
+            >
+              Contact
+            </Text>
+            {!editContact ? (
+              <AntDesign
+                name="edit"
+                size={24}
+                color="black"
+                style={{ paddingHorizontal: 5 }}
+                onPress={() => {
+                  setEditContact(true);
+                }}
+              />
+            ) : (
+              <View style={{ display: "flex", flexDirection: "row" }}>
+                <AntDesign
+                  name="checkcircleo"
+                  style={{ paddingHorizontal: 5 }}
+                  size={20}
+                  color="lightgreen"
+                  onPress={() => {
+                    setEditContact(false);
+                    Save();
+                  }}
+                />
+                <AntDesign
+                  name="closecircleo"
+                  style={{ paddingHorizontal: 5 }}
+                  size={20}
+                  color="red"
+                  onPress={() => {
+                    setEditContact(false);
+                    setNewContact(user.contact);
+                  }}
+                />
+              </View>
+            )}
+          </View>
+
+          {!editContact ? (
+            <Text style={{ paddingHorizontal: 20 }}>{newContact}</Text>
+          ) : (
+            <TextInput
+              placeholder="Interest Name"
+              defaultValue={newContact}
+              onChangeText={setNewContact}
+              style={{
+                height: 30,
+                width: "90%",
+                borderWidth: 1,
+                borderRadius: 10,
+                alignSelf: "center",
+                borderColor: "#9D746B",
+                backgroundColor: "white",
+              }}
+            />
+          )}
         </View>
       </ScrollView>
     </NativeBaseProvider>
