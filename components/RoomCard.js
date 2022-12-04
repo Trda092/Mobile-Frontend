@@ -9,7 +9,7 @@ import {
 import { View, StyleSheet, TextInput } from "react-native";
 import { TouchableOpacity } from "react-native";
 export default function RoomCard(props) {
-  // const [tag, setTag] = useState(props.tag);
+  const [tag, setTag] = useState(props.tag);
   return (
     <View
       style={{
@@ -28,7 +28,7 @@ export default function RoomCard(props) {
             borderColor: "#9D746B",
           }}
         >
-          <Text>{props.name}</Text>
+          <Text style={{ paddingHorizontal: 5 }}>{props.name}</Text>
         </View>
         <View
           style={{
@@ -61,6 +61,9 @@ export default function RoomCard(props) {
             borderColor: "#9D746B",
           }}
         >
+          {tag.map((name, index) => (
+            <Text style={{ paddingHorizontal: 5 }}>{name}</Text>
+          ))}
         </View>
       </View>
     </View>
