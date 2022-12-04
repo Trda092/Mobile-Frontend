@@ -9,10 +9,7 @@ import {
 import { View, StyleSheet, TextInput } from "react-native";
 import { TouchableOpacity } from "react-native";
 export default function RoomCard(props) {
-  const [tag, setTag] = useState(props.tag);
-  // useEffect(() => {
-  //   setTag(props.tag);
-  // });
+  // const [tag, setTag] = useState(props.tag);
   return (
     <View
       style={{
@@ -47,7 +44,7 @@ export default function RoomCard(props) {
               backgroundColor: "#9D746B",
             }}
           >
-            <Text style={{ textAlign: "center" }}>Join</Text>
+            <Text textAlign="center">Join</Text>
           </TouchableOpacity>
         </View>
         <View
@@ -64,9 +61,6 @@ export default function RoomCard(props) {
             borderColor: "#9D746B",
           }}
         >
-          {/* {tag.map((tag, index) => {
-            return <Text style={{ paddingHorizontal: 5 }}>#{tag}</Text>;
-          })} */}
         </View>
       </View>
     </View>

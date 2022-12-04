@@ -6,13 +6,16 @@ import {
   ScrollView,
   Button,
   Text,
+  HStack,
+  VStack,
 } from "native-base";
 import { View } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+// import { Ionicons } from "@expo/vector-icons";
 import { TextInput, StyleSheet} from "react-native";
 import { TouchableOpacity } from "react-native";
-import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+// import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import RoomCard from "../components/RoomCard";
+import InterestRoomSwap from "../components/InterestRoomSwap";
 export default function RoomQueryScreen({ route, navigation }) {
   const data = route.params.selectInterest;
 
@@ -28,9 +31,7 @@ export default function RoomQueryScreen({ route, navigation }) {
     });
   function BasketballScr() {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Notifications!</Text>
-    </View>);
+     <RoomCard name={room.name} tag={room.tag}/>);
       // <View><Text>xxx</Text></View>
   }
   function FootballScr() {
@@ -69,35 +70,29 @@ export default function RoomQueryScreen({ route, navigation }) {
       <View><Text>xxx</Text></View>
     );
   }
-  const Tab = createMaterialTopTabNavigator();
   return (
     <NativeBaseProvider>
       <ScrollView style={[{ marginTop: "20%" }]}>
-        <View style={[{flex:1}]}>
-        <View>
-          <Tab.Navigator>
-            {data.includes("basketball") ? (
-              <Tab.Screen name="basketball" component={BasketballScr} />
-            ) : null}
-            {data.includes("football") ? (
-              <Tab.Screen name="football" component={FootballScr} />
-            ) : null}
-            {data.includes("ai") ? (
-              <Tab.Screen name="ai" component={AiScr} />
-            ) : null}
-            {data.includes("pressing") ? (
-              <Tab.Screen name="pressing" component={PressingScr} />
-            ) : null}
-            {data.includes("newcomer") ? (
-              <Tab.Screen name="newcomer" component={NewcomerScr} />
-            ) : null}
-            {data.includes("detective") ? (
-              <Tab.Screen name="detective" component={DetectiveScr} />
-            ) : null}
-            {data.includes("invest") ? (
-              <Tab.Screen name="invest" component={InvestScr} />
-            ) : null}
-          </Tab.Navigator>
+        <View styles={[{flex:1, flexDirection:"row"}]}>
+          <HStack>
+            {data.includes("basketball") ? <InterestRoomSwap text="basketball"/> : null}
+            {data.includes("football") ?  <InterestRoomSwap text="football"/> : null} 
+            {data.includes("ai") ? <InterestRoomSwap text="ai"/> : null}
+            {data.includes("pressing") ? <InterestRoomSwap text="pressing"/> : null}
+            {data.includes("newcomer") ? <InterestRoomSwap text="newcomer"/> : null}
+            {data.includes("detective") ? <InterestRoomSwap text="detective"/> : null}
+            {data.includes("invest") ? <InterestRoomSwap text="invest"/> : null}
+        </HStack>
+        </View>
+        <View styles={[{flex:1}]}>
+          <VStack space={4} alignItems="center">
+          <Text>a</Text>
+          <Text>a</Text>
+          <Text>a</Text>
+          <Text>a</Text>
+          <Text>a</Text>
+          {/* <RoomCard name="ลาบหมู"/> */}
+          </VStack>
         </View>
         {/* {room.map((room, index) => {
             for (let i = 0; i < data.length; i++) {
@@ -105,7 +100,7 @@ export default function RoomQueryScreen({ route, navigation }) {
                 return <RoomCard key={room.name} name={room.name} tag={room.tag} />;
             }
           })} */}
-        <View>
+        <View styles={[{flex:1}]}>
           <TouchableOpacity
             style={{
               flex:1,
@@ -128,7 +123,6 @@ export default function RoomQueryScreen({ route, navigation }) {
               Create Room
             </Text>
           </TouchableOpacity>
-        </View>
         </View>
       </ScrollView>
     </NativeBaseProvider>

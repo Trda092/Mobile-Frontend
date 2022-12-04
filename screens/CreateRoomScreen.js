@@ -15,7 +15,7 @@ import { Ionicons } from "@expo/vector-icons";
 // import { color } from "react-native-elements/dist/helpers";
 import { TouchableOpacity } from "react-native";
 import {db} from '../firebase'
-export default function CreateRoomScreen() {
+export default function CreateRoomScreen({navigation}) {
   const [fontsLoaded] = useFonts({
     Ribeye_400Regular,
   });
@@ -25,7 +25,7 @@ export default function CreateRoomScreen() {
   async function createRoom(){
     try{
       await db.collection('room').add({"name": name, "interestTag": select})
-      NavigationPreloadManager.navigate("RoomScreen")
+      navigation.navigate("RoomScreen")
     }
     catch(err){
       console.log(err);
