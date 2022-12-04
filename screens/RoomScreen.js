@@ -7,19 +7,51 @@ import {
   Center,
 } from "native-base";
 import { AntDesign } from "@expo/vector-icons";
-import React from "react";
-import { View, StyleSheet, ImageBackground } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  StyleSheet,
+  ImageBackground,
+  Modal,
+  Pressable,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
 export default function RoomScreen({ navigation }) {
+  const [modalVisible, setModalVisible] = useState(false);
+  const [reportPerson, setReportPerson] = useState("");
+  const [micStatus, setMicStatus] = useState(true);
+  const ban = {
+    name: "",
+    reason: "",
+  };
+  const [gotReport, setGotReport] = useState();
+  const mic = {
+    uri: "https://www.iconpacks.net/icons/1/free-microphone-icon-342-thumb.png",
+  };
+  const mute = {
+    uri: "https://cdn-icons-png.flaticon.com/512/39/39517.png",
+  };
+  // const room = [
+  //   {
+  //     id: 1,
+  //     name: "ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ",
+  //     tag: ["กับข้าว", "ปัญหาชีวิต"],
+
+  //   },
+  // ];
   const room = [
     {
       id: 1,
       name: "ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ",
-      tag: ["กับข้าว", "ปัญหาชีวิต"],
+      tag: ["pressing", "ai"],
       user_in_room: [
         {
           id: 1,
           name: "Trda",
-          profile: { uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" },
+          profile: {
+            uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
+          },
           role: "host",
         },
         {
@@ -48,9 +80,92 @@ export default function RoomScreen({ navigation }) {
         },
       ],
     },
+    {
+      id: 2,
+      name: "chat",
+      tag: ["ai", "football"],
+      user_in_room: [
+        {
+          id: 1,
+          name: "Trda",
+          profile: {
+            uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
+          },
+          role: "host",
+        },
+        {
+          id: 2,
+          name: "Natanon",
+          profile: {
+            uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
+          },
+          role: "speaker",
+        },
+      ],
+    },
   ];
+  function report() {
+    return alert("test");
+  }
   return (
     <NativeBaseProvider>
+      <View>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalVisible}
+          onRequestClose={() => {
+            Alert.alert("Modal has been closed.");
+            setModalVisible(!modalVisible);
+          }}
+        >
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <Text style={styles.modalText}>
+                You want to report {reportPerson}?
+              </Text>
+              <TextInput
+                placeholder={"Reason why you report " + reportPerson}
+                multiline={true}
+                style={{
+                  flexWrap: "wrap",
+                  height: "auto",
+                  width: 250,
+                  margin: 12,
+                  borderWidth: 1,
+                  padding: 10,
+                  borderRadius: 10,
+                  alignSelf: "center",
+                  borderColor: "#9D746B",
+                }}
+              />
+
+              <Pressable
+                style={[
+                  styles.button,
+                  styles.buttonSubmit,
+                  { marginVertical: 5 },
+                ]}
+                onPress={() => {
+                  setModalVisible(!modalVisible), report();
+                }}
+              >
+                <Text style={styles.textStyle}>Submit</Text>
+              </Pressable>
+              <Pressable
+                style={[
+                  styles.button,
+                  styles.buttonClose,
+                  { marginVertical: 5 },
+                ]}
+                onPress={() => setModalVisible(!modalVisible)}
+              >
+                <Text style={styles.textStyle}>Cancel</Text>
+              </Pressable>
+            </View>
+          </View>
+        </Modal>
+      </View>
       <View style={styles.Nav}>
         <View style={styles.Title}>
           <Text
@@ -59,18 +174,27 @@ export default function RoomScreen({ navigation }) {
             {room[0].name}
           </Text>
         </View>
+
         <View style={{ justifyContent: "center" }}>
           <View style={styles.Speaker}>
             {room[0].user_in_room.map((user, index) => {
               if (user.role === "speaker" || user.role === "host")
                 return (
                   <View style={styles.Profile}>
-                    <ImageBackground
-                      imageStyle={{ borderRadius: 100 }}
-                      style={styles.Image}
-                      source={user.profile}
-                      resizeMode="cover"
-                    ></ImageBackground>
+                    <TouchableOpacity
+                      style={{ height: "100%" }}
+                      onPress={() => {
+                        setModalVisible(true), setReportPerson(user.name);
+                      }}
+                    >
+                      <ImageBackground
+                        imageStyle={{ borderRadius: 100 }}
+                        style={styles.Image}
+                        source={user.profile}
+                        resizeMode="cover"
+                      ></ImageBackground>
+                      <Text style={{ textAlign: "center" }}>{user.name}</Text>
+                    </TouchableOpacity>
                   </View>
                 );
             })}
@@ -92,12 +216,20 @@ export default function RoomScreen({ navigation }) {
               if (user.role === "audience")
                 return (
                   <View style={styles.Profile}>
-                    <ImageBackground
-                      imageStyle={{ borderRadius: 100 }}
-                      style={styles.Image}
-                      source={user.profile}
-                      resizeMode="cover"
-                    ></ImageBackground>
+                    <TouchableOpacity
+                      style={{ height: "100%" }}
+                      onPress={() => {
+                        setModalVisible(true), setReportPerson(user.name);
+                      }}
+                    >
+                      <ImageBackground
+                        imageStyle={{ borderRadius: 100 }}
+                        style={styles.Image}
+                        source={user.profile}
+                        resizeMode="cover"
+                      ></ImageBackground>
+                      <Text style={{ textAlign: "center" }}>{user.name}</Text>
+                    </TouchableOpacity>
                   </View>
                 );
             })}
@@ -105,8 +237,34 @@ export default function RoomScreen({ navigation }) {
         </View>
 
         <View style={styles.Footer}>
-          <View style={{ paddingHorizontal: 20 }}>
-            <AntDesign name="disconnect" size={24} color="black" />
+          <View
+            style={{
+              paddingHorizontal: 20,
+            }}
+          >
+            <TouchableOpacity
+              onPress={() => {
+                {
+                  micStatus ? setMicStatus(false) : setMicStatus(true);
+                }
+              }}
+            >
+              {micStatus ? (
+                <ImageBackground
+                  imageStyle={{ borderRadius: 100 }}
+                  style={styles.Icon}
+                  source={mic}
+                  resizeMode="cover"
+                ></ImageBackground>
+              ) : (
+                <ImageBackground
+                  imageStyle={{ borderRadius: 100 }}
+                  style={styles.Icon}
+                  source={mute}
+                  resizeMode="cover"
+                ></ImageBackground>
+              )}
+            </TouchableOpacity>
           </View>
           <View style={{ paddingHorizontal: 10 }}>
             <Text>Audience</Text>
@@ -169,7 +327,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   Profile: {
-    height: 60,
+    height: 70,
     paddingHorizontal: 8,
     marginVertical: 10,
   },
@@ -203,5 +361,53 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     flexDirection: "row",
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 22,
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  buttonOpen: {
+    backgroundColor: "#F194FF",
+  },
+  buttonClose: {
+    backgroundColor: "gray",
+  },
+  buttonSubmit: {
+    backgroundColor: "red",
+  },
+  textStyle: {
+    color: "white",
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalText: {
+    marginBottom: 15,
+    textAlign: "center",
+  },
+  Icon: {
+    height: 30,
+    width: 30,
   },
 });
