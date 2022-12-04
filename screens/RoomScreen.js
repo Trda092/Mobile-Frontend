@@ -18,15 +18,15 @@ export default function RoomScreen({ navigation }) {
       user_in_room: [
         {
           id: 1,
-          name: "Natanon",
-          profile: { uri: "https://reactjs.org/logo-og.png" },
+          name: "Trda",
+          profile: { uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" },
           role: "host",
         },
         {
           id: 2,
-          name: "Trada",
+          name: "Natanon",
           profile: {
-            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1200px-Vue.js_Logo_2.svg.png",
+            uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
           },
           role: "speaker",
         },
@@ -34,7 +34,7 @@ export default function RoomScreen({ navigation }) {
           id: 3,
           name: "Chaowat",
           profile: {
-            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/1200px-HTML5_logo_and_wordmark.svg.png",
+            uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
           },
           role: "speaker",
         },
@@ -42,7 +42,7 @@ export default function RoomScreen({ navigation }) {
           id: 4,
           name: "Santhitak",
           profile: {
-            uri: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1200px-CSS3_logo_and_wordmark.svg.png",
+            uri: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png",
           },
           role: "audience",
         },
