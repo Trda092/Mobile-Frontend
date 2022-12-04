@@ -29,46 +29,6 @@ export default function RoomQueryScreen({ route, navigation }) {
     await useFonts({
       Ribeye_400Regular,
     });
-  function BasketballScr() {
-    return (
-     <RoomCard name={room.name} tag={room.tag}/>);
-      // <View><Text>xxx</Text></View>
-  }
-  function FootballScr() {
-    return (
-      // <RoomCard name="ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ" tag={["basketball", "football"]}/>
-      <View><Text>xxx</Text></View>
-    );
-  }
-  function AiScr() {
-    return (
-      // <RoomCard name="ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ" tag={["basketball", "football"]}/>
-      <View><Text>xxx</Text></View>
-    );
-  }
-  function PressingScr() {
-    return (
-      // <RoomCard name="ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ" tag={["basketball", "football"]}/>
-      <View><Text>xxx</Text></View>
-    );
-  }
-  function NewcomerScr() {
-    return (
-      // <RoomCard name="ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ" tag={["basketball", "football"]}/>
-      <View><Text>xxx</Text></View>
-    );
-  }
-  function DetectiveScr() {
-    return (
-      // <RoomCard name="ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ" tag={["basketball", "football"]}/>
-      <View><Text>xxx</Text></View>
-    );
-  }
-  function InvestScr() {
-    return (
-      // <RoomCard name="ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ" tag={["basketball", "football"]}/>
-      <View><Text>xxx</Text></View>
-    );
   }
   return (
     <NativeBaseProvider>
