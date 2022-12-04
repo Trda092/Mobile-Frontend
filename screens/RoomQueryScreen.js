@@ -16,42 +16,40 @@ import { TouchableOpacity } from "react-native";
 // import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import RoomCard from "../components/RoomCard";
 import InterestRoomSwap from "../components/InterestRoomSwap";
+import InterestBadge from "../components/InterestBadge";
 export default function RoomQueryScreen({ route, navigation }) {
   const data = route.params.selectInterest;
-
+  const [selectCat,setSelectCat] = useState('')
   const room = [
     { id: 1, name: "ชีวิตก็เหมือนหมูลาบหมูแซ่บๆ", tag: ["pressing", "ai"] },
     { id: 2, name: "chat", tag: ["ai", "football"] },
   ];
   const test = ["football"];
-  console.log(data);
+  console.log(data, selectCat);
   const fontsLoaded = async () =>
     await useFonts({
       Ribeye_400Regular,
     });
-  }
   return (
     <NativeBaseProvider>
       <ScrollView style={[{ marginTop: "20%" }]}>
         <View styles={[{flex:1, flexDirection:"row"}]}>
           <HStack>
-            {data.includes("basketball") ? <InterestRoomSwap text="basketball"/> : null}
-            {data.includes("football") ?  <InterestRoomSwap text="football"/> : null} 
-            {data.includes("ai") ? <InterestRoomSwap text="ai"/> : null}
-            {data.includes("pressing") ? <InterestRoomSwap text="pressing"/> : null}
-            {data.includes("newcomer") ? <InterestRoomSwap text="newcomer"/> : null}
-            {data.includes("detective") ? <InterestRoomSwap text="detective"/> : null}
-            {data.includes("invest") ? <InterestRoomSwap text="invest"/> : null}
+            {data.includes("basketball") ? <InterestRoomSwap text="basketball" onPress={()=>{setSelectCat('basketball')}}/> : null}
+            {data.includes("football") ?  <InterestRoomSwap text="football" onPress={()=>{setSelectCat('football')}}/> : null} 
+            {data.includes("ai") ? <InterestRoomSwap text="ai" onPress={()=>{setSelectCat('ai')}}/> : null}
+            {data.includes("pressing") ? <InterestRoomSwap text="pressing" onPress={()=>{setSelectCat('pressing')}}/> : null}
+            {data.includes("newcomer") ? <InterestRoomSwap text="newcomer" onPress={()=>{setSelectCat('newcomer')}}/> : null}
+            {data.includes("detective") ? <InterestRoomSwap text="detective" onPress={()=>{setSelectCat('detective')}}/> : null}
+            {data.includes("invest") ? <InterestRoomSwap text="invest" onPress={()=>{setSelectCat('invest')}}/> : null}
         </HStack>
         </View>
         <View styles={[{flex:1}]}>
           <VStack space={4} alignItems="center">
-          <Text>a</Text>
-          <Text>a</Text>
-          <Text>a</Text>
-          <Text>a</Text>
-          <Text>a</Text>
-          {/* <RoomCard name="ลาบหมู"/> */}
+          <InterestBadge text="a" dataLists={["a"]}/>
+          <InterestBadge text="a" dataLists={["a"]}/>
+          <InterestBadge text="a" dataLists={["a"]}/>
+          <InterestBadge text="a" dataLists={["a"]}/>
           </VStack>
         </View>
         {/* {room.map((room, index) => {

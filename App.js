@@ -5,9 +5,7 @@ import {
   Center,
   Heading,
   Switch,
-  useColorMode,
   NativeBaseProvider,
-  extendTheme,
   VStack,
   Box,
 } from "native-base";
@@ -25,10 +23,11 @@ import FriendStatusScreen from "./screens/FriendStatusScreen";
 import CreateRoomScreen from "./screens/CreateRoomScreen";
 import RoomScreen from "./screens/RoomScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-const config = {
-  useSystemColorMode: false,
-  initialColorMode: "dark",
-};
+import RoomCard from "./components/RoomCard";
+// const config = {
+//   useSystemColorMode: false,
+//   initialColorMode: "dark",
+// };
 
 const Stack = createNativeStackNavigator();
 
@@ -74,6 +73,5 @@ export default function App() {
         ></Stack.Screen>
       </Stack.Navigator>
     </NavigationContainer>
-    // <RoomQueryScreen/>
   );
 }
